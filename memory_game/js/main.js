@@ -1,22 +1,33 @@
-
 const cards = ["queen", "queen", "king", "king"];
 const cardsInPlay = [];
-var cardOne = cards[0];
-cardsInPlay.push('cardOne');
-var cardTwo = cards[2];
-cardsInPlay.push('cardTwo');
 
-// If user flips cardOne and CardThree: You got a match!
-// If user flips cardTwo and cardFour: You got a match!
-// Otherwise: Try Again
+function checkForMatch() {
 
-console.log("User flipped " + cardOne);
-console.log("User flipped " + cardTwo);
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+	  console.log("You found a match!");
+	} else {
+	  console.log("Sorry, try again.");
+	}
+}
 
-if (cardsInPlay === cards[0] && cards[3]) {
-	alert('You got a match!');
-} else if (cardsInPlay === cards[2] && cards[4]) {
-	alert('You got a match!');
-} else 
-	alert('Try Again!');
+function flipCard(cardId) { 
+	cardsInPlay.push(cards[cardId]);
+
+	console.log("User flipped " + cards[cardId])
+	
+	if(cardsInPlay.length === 2){
+		checkForMatch();	
+	}
+}
+
+
+flipCard(0);
+flipCard(2);
+
+
+
+
+
+
+
 
